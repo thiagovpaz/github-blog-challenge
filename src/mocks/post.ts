@@ -1,1 +1,70 @@
-export default {};
+export default {
+  url: 'https://api.github.com/repos/thiagovpaz/github-blog-challenge/issues/1',
+  repository_url:
+    'https://api.github.com/repos/thiagovpaz/github-blog-challenge',
+  labels_url:
+    'https://api.github.com/repos/thiagovpaz/github-blog-challenge/issues/1/labels{/name}',
+  comments_url:
+    'https://api.github.com/repos/thiagovpaz/github-blog-challenge/issues/1/comments',
+  events_url:
+    'https://api.github.com/repos/thiagovpaz/github-blog-challenge/issues/1/events',
+  html_url: 'https://github.com/thiagovpaz/github-blog-challenge/issues/1',
+  id: 1966771559,
+  node_id: 'I_kwDOKmYZfc51Oo1n',
+  number: 1,
+  title:
+    'Desbravando o Mundo do Next.js: Uma Visão Profunda do Desenvolvimento Web Moderno',
+  user: {
+    login: 'thiagovpaz',
+    id: 20052351,
+    node_id: 'MDQ6VXNlcjIwMDUyMzUx',
+    avatar_url: 'https://avatars.githubusercontent.com/u/20052351?v=4',
+    gravatar_id: '',
+    url: 'https://api.github.com/users/thiagovpaz',
+    html_url: 'https://github.com/thiagovpaz',
+    followers_url: 'https://api.github.com/users/thiagovpaz/followers',
+    following_url:
+      'https://api.github.com/users/thiagovpaz/following{/other_user}',
+    gists_url: 'https://api.github.com/users/thiagovpaz/gists{/gist_id}',
+    starred_url:
+      'https://api.github.com/users/thiagovpaz/starred{/owner}{/repo}',
+    subscriptions_url: 'https://api.github.com/users/thiagovpaz/subscriptions',
+    organizations_url: 'https://api.github.com/users/thiagovpaz/orgs',
+    repos_url: 'https://api.github.com/users/thiagovpaz/repos',
+    events_url: 'https://api.github.com/users/thiagovpaz/events{/privacy}',
+    received_events_url:
+      'https://api.github.com/users/thiagovpaz/received_events',
+    type: 'User',
+    site_admin: false,
+  },
+  labels: [],
+  state: 'open',
+  locked: false,
+  assignee: null,
+  assignees: [],
+  milestone: null,
+  comments: 0,
+  created_at: '2023-10-28T23:34:49Z',
+  updated_at: '2023-10-28T23:34:49Z',
+  closed_at: null,
+  author_association: 'OWNER',
+  active_lock_reason: null,
+  body: 'O desenvolvimento web moderno está repleto de desafios e oportunidades, e o Next.js se destaca como uma ferramenta poderosa nesse cenário dinâmico. Ao entender os fundamentos do Next.js, os desenvolvedores podem criar aplicações web altamente responsivas e eficientes. \r\n\r\nEsta postagem mergulha nas complexidades do Next.js, desde seus conceitos básicos até técnicas avançadas. Exploraremos o conceito de SSR (Server-Side Rendering) e como ele melhora a velocidade de carregamento das páginas, além de mergulhar nas vantagens do SSG (Static Site Generation) para criação de conteúdo estático. \r\n\r\nAo compreender essas nuances, os desenvolvedores estarão preparados para criar experiências web excepcionais e inovadoras.\r\n\r\n',
+  closed_by: null,
+  reactions: {
+    url: 'https://api.github.com/repos/thiagovpaz/github-blog-challenge/issues/1/reactions',
+    total_count: 0,
+    '+1': 0,
+    '-1': 0,
+    laugh: 0,
+    hooray: 0,
+    confused: 0,
+    heart: 0,
+    rocket: 0,
+    eyes: 0,
+  },
+  timeline_url:
+    'https://api.github.com/repos/thiagovpaz/github-blog-challenge/issues/1/timeline',
+  performed_via_github_app: null,
+  state_reason: null,
+};

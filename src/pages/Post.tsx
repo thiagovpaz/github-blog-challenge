@@ -6,16 +6,26 @@ import {
   FaChevronLeft,
 } from 'react-icons/fa6';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { format, formatDistanceToNow } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
-import postData from '@/mocks/post';
+import { PostType } from '@/types/post';
+import { github } from '@/services/github';
 
 const Post = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
 
-  const [post] = useState(postData);
+  const [post, setPost] = useState<PostType | null>(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    github
+      .get(`/repos/${import.meta.env.VITE_GITHUB_REPOSITORY}/issues/${id}`)
+      .then((response) => {
+        setPost(response.data);
+      });
+  }, [id]);
 
   return (
     <div className="relative mx-auto h-full max-w-[1240px]">
@@ -31,39 +41,50 @@ const Post = () => {
             </a>
             <a
               target="_blank"
-              href="/"
+              href={post?.html_url}
               className="flex items-center justify-center gap-2 text-xs font-bold uppercase text-blue hover:underline"
             >
               Ver no Github <FaExternalLinkAlt />
             </a>
           </div>
-          <h2 className="text-2xl text-base-title">
-            JavaScript data types and data structures
-          </h2>
+          <h2 className="text-2xl text-base-title">{post?.title}</h2>
           <div className="flex gap-10">
             <div className="flex items-center justify-center gap-2 font-normal text-base-subtitle">
               <FaGithub className="fill-base-label" size="18px" />
-              thiagovpaz
+              {post?.user.login}
             </div>
-            <div className="flex items-center justify-center gap-2 font-normal text-base-subtitle">
+            <div
+              className="flex items-center justify-center gap-2 font-normal text-base-subtitle"
+              title={
+                post?.created_at &&
+                format(new Date(post.created_at), 'dd/MM/yyyy hh:mm')
+              }
+            >
               <FaCalendarDay className="fill-base-label" size="18px" />
-              Há 1 dia
+              {post?.created_at &&
+                formatDistanceToNow(new Date(post.created_at), {
+                  locale: ptBR,
+                })}
             </div>
             <div className="flex items-center justify-center gap-2 font-normal text-base-subtitle">
-              <FaComment className="fill-base-label" size="18px" /> 5
-              comentários
+              <FaComment className="fill-base-label" size="18px" />
+              {post?.comments || 0} comentário
+              {(post?.comments && post.comments > 1) || post?.comments === 0
+                ? 's'
+                : ''}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="px-8 pt-[120px] text-base-text">
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in JavaScript and what properties
-        they have. These can be used to build other data structures. Wherever
-        possible, comparisons with other languages are drawn.
-      </div>
+      {post?.body && (
+        <div
+          className="px-8 pt-[120px] text-base-text"
+          dangerouslySetInnerHTML={{
+            __html: post.body.replace(/\n/g, '<br/>'),
+          }}
+        />
+      )}
     </div>
   );
 };

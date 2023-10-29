@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 
 const MainLayout = () => {
   return (
-    <div className="bg-base-background h-screen">
+    <div className="min-h-screen bg-base-background">
       <Header />
 
       <Outlet />

@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div className="relative mx-auto h-full max-w-[1240px]">
-      <div className="absolute -top-16 left-0 right-0 flex h-[215px] items-center justify-between gap-8 rounded-xl bg-base-profile px-10 py-8">
+      <div className="absolute -top-16 left-0 right-0 flex h-[215px] w-full items-center justify-between gap-8 rounded-xl bg-base-profile px-10 py-8 shadow-lg">
         <img
           src={user.avatar_url}
           alt="User Profile Avatar"
@@ -30,7 +30,7 @@ const Home = () => {
             <a
               target="_blank"
               href={user.html_url}
-              className="flex items-center justify-center gap-2 font-bold uppercase text-blue hover:underline"
+              className="flex items-center justify-center gap-2 text-xs font-bold uppercase leading-5 text-blue hover:underline"
             >
               Github <FaExternalLinkAlt />
             </a>
@@ -67,7 +67,7 @@ const Home = () => {
 
         <div className="mt-12 grid w-full grid-cols-2 gap-8 pb-8">
           {Array.from({ length: 6 }, (_, i) => i + 1).map((i) => (
-            <Card key={`k-${i}`} />
+            <Card key={`k-${i}`} to={`/post/${i}`} />
           ))}
         </div>
       </div>

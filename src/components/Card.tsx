@@ -1,6 +1,19 @@
-const Card = () => {
+import React from 'react';
+import { twMerge } from 'tailwind-merge';
+import { Link, LinkProps } from 'react-router-dom';
+
+interface CardProps extends LinkProps {}
+
+const Card: React.FC<CardProps> = ({ to }) => {
   return (
-    <div className="space-y-5 rounded-md bg-base-post p-8">
+    <Link
+      to={to}
+      className={twMerge(
+        'space-y-5 rounded-md border-2 border-base-post bg-base-post p-8',
+        'hover:border-base-label',
+        'hover:transition-all',
+      )}
+    >
       <div className="flex items-center justify-between">
         <h4 className="flex flex-[0.75] text-lg font-bold text-base-title">
           JavaScript data types and data structures
@@ -21,7 +34,7 @@ const Card = () => {
         let foo = 42; // foo is now a number foo = 'bar'; // foo is now a string
         foo = true; // foo is now a boolean
       </p>
-    </div>
+    </Link>
   );
 };
 
